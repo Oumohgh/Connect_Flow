@@ -4,9 +4,11 @@
         <title>Connect Flow</title>
     </head>
     <body>
+        <h1>fff</h1>
 
-        <?php if () {
-            # code...
-        } ''; ?>
+        <?php
+        echo 'hello';
+        echo  'Hi'.'folks';
+        ?>
     </body>
 </html>

@@ -18,7 +18,7 @@ CREATE TABLE utilisateurs (
     email VARCHAR(25), 
     ville VARCHAR (25),
     pays VARCHAR (25),
-    restOfAddress VARCHAR(25), 
+    adress VARCHAR(25), 
     userId int,
     FOREIGN KEY (userId) REFERENCES utilisateurs(id) )
     

@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inscription</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inscription</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-light">
 
-
-<div class="container mt-5">
-<div class="row justify-content-center">
-<div class="col-md-5">
-<div class="card shadow">
-<div class="card-body">
-<h3 class="text-center mb-4">Inscription</h3>
-
-
-<form>
-<div class="mb-3">
-<label class="form-label">Nom d'utilisateur</label>
-<input type="text" class="form-control" minlength="3" required>
-</div>
+    <?php include 'includes/header.php'?>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">Inscription</h3>
 
 
-<div class="mb-3">
-<label class="form-label">Mot de passe</label>
-<input type="password" class="form-control" minlength="6" required>
-</div>
+                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                            <!--les donnees seront traits uniquement par le script PHP  dans ce fichier. Vous pouvez opter pour lenvoi des données du formulaire vers un fichier different -->
+                            <div class="mb-3">
+                                <label class="form-label">Nom d'utilisateur<span class="note">*</span>:</label>
+                                <input type="text" name="name" class="form-control" placeholder="Votre Nom"
+                                    minlength="3" required>
+                                <?php echo "<p class='note'>".$msg_nom."</p>";?>
+                                <?php echo "<p class='note'>".$msg2_nom."</p>";?>
+
+                            </div>
+                            <?php
+if(isset($_POST['submit'])){
+    if(empty($_POST['name']))
+    $msg_nom="Veillez enter votre nom";
+    $nom_subject=$_POST['name'];
+    $nom_pattern='/^[a-zA-Z]*$/';
+    preg_match($nom_pattern,$nom_subject,$name_matches);
+    if(!$name_matches[0])
+    $msg2_nom="Juste les alphabets et les espaces ";
+}
+?>
+
+                            <div class="mb-3">
+                                <label class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control" minlength="6" required>
+                            </div>
 
 
-<div class="mb-3">
-<label class="form-label">Confirmer le mot de passe</label>
-<input type="password" class="form-control" required>
-</div>
+                            <div class="mb-3">
+                                <label class="form-label">Confirmer le mot de passe</label>
+                                <input type="password" class="form-control" required>
+                            </div>
 
 
-<button class="btn btn-success w-100">Créer le compte</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
+                            <button class="btn btn-success w-100" name="submit">Creer le compte</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body>
+
 </html>
+<?php include 'includes/footer.php'?>

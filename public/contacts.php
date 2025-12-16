@@ -51,7 +51,7 @@
 <label class="form-label">Adresse</label>
 <textarea class="form-control" maxlength="255"></textarea>
 </div>
-<button class="btn btn-primary w-100 mt-2">Enregistrer</button>
+<button class="btn btn-primary w-100 mt-2" type=>Enregistrer</button>
 </form>
 </div>
 

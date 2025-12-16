@@ -1,6 +1,7 @@
 <?php include'includes/header.php'?>
 <?php
 session_start();
+
 ?>
 
 <body class="bg-light ">
@@ -25,7 +26,8 @@ session_start();
                                 </div>
                             </div>
 
-                                <button class="btn btn-primary w-100">Connexion</button>
+                                <button class="btn btn-primary w-100" name="submit" type="submit">Connexion</button>
+                                <if
 
                         </form>
 
